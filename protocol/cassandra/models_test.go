@@ -18,7 +18,7 @@ var optionsFrameBytes = []byte{
 func TestParsePacketHeader(t *testing.T) {
 	reader := bytes.NewReader(optionsFrameBytes)
 
-	wireHeader, err := BuildWireHeader(reader)
+	wireHeader, err := BuildFrameHeader(reader)
 	if err != nil {
 		t.Fatalf("Failed to parse real packet header: %v", err)
 	}

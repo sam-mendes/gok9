@@ -29,7 +29,7 @@ func (r RequestMetadata) RequestType() string {
 	}
 }
 
-func BuildWireHeader(reader io.Reader) (FrameHeader, error) {
+func BuildFrameHeader(reader io.Reader) (FrameHeader, error) {
 	// Represent the structured binary data
 	var wireHeader FrameHeader
 
