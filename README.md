@@ -19,6 +19,7 @@ However, after digging deep into the Cassandra v4 binary protocol specifications
 
 ### The Implementations
 
+```
 // STRATEGY 1: Reflection-based (Forces Heap Escape)
 func ParseWithBinaryRead(r *bytes.Reader) (FrameHeader, error) {
 	var f FrameHeader
@@ -43,6 +44,7 @@ func ParseWithSlicing(r *bytes.Reader) (FrameHeader, error) {
 		BodyLength:      binary.BigEndian.Uint32(buf[5:9]),
 	}, nil
 }
+````
 
 Does `gok9` need that 17x performance gain? I don't know yet. But when building a tool to sniff a live TCP socket, minimizing operational overhead and 
 skipping garbage collection cycles is obviously a win.
